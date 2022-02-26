@@ -18,7 +18,7 @@ static const char col_blue_sky[]	= "#7dbdd6";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_blue_sky,  col_orange  },
+	[SchemeSel]  = { col_gray4, col_blue_sky,  col_blue_sky  },
 };
 
 /* tagging */
@@ -31,13 +31,14 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	//{ "Gimp",     NULL,       NULL,       1 << 3,            0,           -1 },
-	{ "Steam",     NULL,       NULL,       1 << 3,            1,           -1 },
+	{ "Steam",     NULL,       NULL,       1 << 3,            0,           -1 },
 	{ "LibreWolf",  NULL,       NULL,       1,       0,           -1 },
 	{ "KeePassXC",  NULL,       NULL,       0,       1,           -1 },
 	{ "lbry",  	NULL,       NULL,       1 << 1,       0,           -1 },
 	{ "qbittorrent",NULL,       NULL,       1 << 4,       0,           -1 },
 	{ "discord",  NULL,       NULL,       1 << 2,       0,           -1 },
-	{ "ripcord",  NULL,       NULL,       1 << 2,       0,           -1 },
+	{ "Godot",  NULL,       NULL,       1 << 2,       0,           -1 },
+	{ "Thunderbird",  NULL,       NULL,       1 << 1,       0,           -1 }
 };
 
 /* layout(s) */
@@ -66,7 +67,8 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_blue_sky, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+//static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "st", "-e", "tmux", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
